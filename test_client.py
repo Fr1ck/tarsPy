@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#-*- coding:utf-8 -*-
 
 import socket
 
@@ -14,9 +13,9 @@ while True:
     #输入数据
     data = input('please input:')
     #客户端发送数据
-    clientsocket.sendall(data)
+    clientsocket.sendall(data.encode())
     #客户端接收数据
-    server_data = clientsocket.recv(1024)
+    server_data = clientsocket.recv(1024).decode()
     print('客户端收到的数据：', server_data)
     #关闭客户端socket
     clientsocket.close()
